@@ -1,0 +1,59 @@
+name: israrads Lead Agent
+
+on:
+  schedule:
+    - cron: "0 8 * * *"     # runs daily around 8am UTC — edit the hour if you want a different time
+  workflow_dispatch:         # lets you click "Run workflow" manually in the Actions tab
+    inputs:
+      mode:
+        description: "selftest = check settings only, once = do a real run"
+        type: choice
+        options: [selftest, once]
+        default: selftest
+
+concurrency:
+  group: israrads-agent
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # needed so the workflow can commit the updated leads.csv back
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run the agent
+        env:
+          SENDER_NAME: ${{ vars.SENDER_NAME }}
+          SENDER_TITLE: ${{ vars.SENDER_TITLE }}
+          SENDER_EMAIL: ${{ vars.SENDER_EMAIL }}
+          SENDER_PHONE: ${{ vars.SENDER_PHONE }}
+          SENDER_WEBSITE: ${{ vars.SENDER_WEBSITE }}
+          NICHES: ${{ vars.NICHES }}
+          TARGET_COUNTRIES: ${{ vars.TARGET_COUNTRIES }}
+          MAX_NEW_LEADS_PER_DAY: ${{ vars.MAX_NEW_LEADS_PER_DAY }}
+          MAX_EMAILS_PER_DAY: ${{ vars.MAX_EMAILS_PER_DAY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -m agent ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'once' }}
+
+      - name: Commit updated leads.csv and crm_import.csv back to the repo
+        if: github.event_name == 'schedule' || inputs.mode == 'once'
+        run: |
+          git config user.name "israrads-agent"
+          git config user.email "israrads-agent@users.noreply.github.com"
+          git add data/leads.csv data/crm_import.csv
+          git commit -m "Daily lead run: $(date -u +%Y-%m-%d)" || echo "Nothing new to commit"
+          git push || echo "Nothing to push"
