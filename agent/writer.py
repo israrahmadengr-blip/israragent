@@ -27,8 +27,10 @@ def _join_natural(items: list[str]) -> str:
     return ", ".join(items[:-1]) + ", and " + items[-1]
 
 
-def build_drafts(business_name: str, website: str, pain_points: list[str], cfg) -> dict:
+def build_drafts(business_name: str, website: str, pain_points: list[str], cfg,
+                 contact_name: str = "") -> dict:
     domain = _domain(website)
+    greeting = f"Hi {contact_name.split(' ')[0]}," if contact_name else "Hi there,"
     pain_clause = _join_natural(pain_points) if pain_points else \
         "no major tracking gaps — the core setup actually looks solid"
     competitive_line = ("Right now, competitors who have this covered are likely picking up "
@@ -36,7 +38,7 @@ def build_drafts(business_name: str, website: str, pain_points: list[str], cfg) 
 
     email_subject = f"A quick observation about {domain}"
     email_body = (
-        f"Hi [Name],\n\n"
+        f"{greeting}\n\n"
         f"I ran a quick technical check on {domain} and noticed {pain_clause}.\n\n"
         f"For a business like {business_name}, that usually means missed leads and no clear way "
         f"to measure what's actually working from your marketing. {competitive_line}\n\n"
@@ -49,7 +51,7 @@ def build_drafts(business_name: str, website: str, pain_points: list[str], cfg) 
     whatsapp = (f"Hi, this is {cfg.sender_name.split(' ')[0]} — I checked {domain} and noticed "
                 f"{pain_clause}. That usually means missed leads and no way to measure what's "
                 f"working. Worth a quick chat?")
-    linkedin = (f"Hi [Name], I was looking at {domain} and noticed {pain_clause}. I work with "
+    linkedin = (f"{greeting} I was looking at {domain} and noticed {pain_clause}. I work with "
                 f"businesses on exactly this (ads + tracking + reporting) — happy to share what "
                 f"I found if useful, no pitch attached.")
     messenger = (f"Hi! I checked {domain} and noticed {pain_clause}. I help local businesses fix "
@@ -101,3 +103,29 @@ def _try_gemini_rewrite(business_name: str, domain: str, pain_points: list[str],
         return {k: str(parsed[k]).strip() for k in required}
     except Exception:
         return None
+
+
+def build_followup(stage: int, business_name: str, website: str, pain_points: list[str],
+                   cfg, contact_name: str = "", fresh_pain: str = "") -> tuple[str, str]:
+    """Israr's follow-up cadence: FU1 (day 4) short bump, FU2 (day 8) new angle
+    with a fresh audit finding, FU3 (day 14) polite breakup, then close."""
+    domain = _domain(website)
+    greeting = f"Hi {contact_name.split(' ')[0]}," if contact_name else "Hi there,"
+    sign = (f"Best,\n{cfg.sender_name}\n{cfg.sender_title}\n"
+            f"{cfg.sender_email} | {cfg.sender_phone} | {cfg.sender_website}")
+    pain_clause = _join_natural(pain_points) if pain_points else "the tracking gaps I flagged"
+    if stage == 1:
+        return (f"Re: A quick observation about {domain}",
+                f"{greeting}\n\nJust floating this back to the top of your inbox — I checked "
+                f"{domain} and noticed {pain_clause}. Happy to walk you through what I found "
+                f"in 15 minutes, no pitch attached.\n\n{sign}")
+    if stage == 2:
+        new_bit = fresh_pain or pain_clause
+        return (f"One more thing I spotted on {domain}",
+                f"{greeting}\n\nSince my last note I took another look at {domain} and spotted "
+                f"something else worth knowing: {new_bit}. This is exactly the kind of gap that "
+                f"quietly costs sales every week. Worth a quick call?\n\n{sign}")
+    return (f"Closing the loop — {domain}",
+            f"{greeting}\n\nI've reached out a couple of times about the tracking gaps on "
+            f"{domain} ({pain_clause}) and don't want to clutter your inbox, so I'll close "
+            f"the loop here. If fixing this becomes a priority, you know where to find me.\n\n{sign}")

@@ -1,46 +1,51 @@
-import os, sys
+"""Follow-up cadence tests (v2): FU1 day 4 / FU2 day 8 / FU3 breakup day 14,
+measured from the first email; stage = follow-ups already sent. Plus the
+emailer paths. Run with: python3 test_followups.py
+"""
+import os
+import sys
 from datetime import date, timedelta
 from unittest import mock
+
 sys.path.insert(0, os.path.dirname(__file__))
-
 os.environ["LEADS_CSV_PATH"] = "data/test_followup.csv"
-os.environ["FOLLOWUP_AFTER_DAYS"] = "4"
-os.environ["MAX_FOLLOWUPS_TOTAL"] = "2"
-os.environ["MAX_FOLLOWUPS_PER_DAY"] = "10"
-os.environ["SECONDS_BETWEEN_SITE_FETCHES"] = "0"
-os.environ["NICHES"] = "gym"
-os.environ["TARGET_COUNTRIES"] = "PK"
 
-from agent import store, config
+from agent import store  # noqa: E402
 
-# Build a fake existing lead contacted 5 days ago (due for follow-up), and one contacted yesterday (not due)
-five_days_ago = (date.today() - timedelta(days=5)).isoformat()
-yesterday = (date.today() - timedelta(days=1)).isoformat()
+
+def row(name, days_ago, count, status=store.STATUS_CONTACTED):
+    base = {k: "" for k in store.FIELDNAMES}
+    base.update({"business_name": name, "website": f"https://{name}.example",
+                 "status": status,
+                 "email_sent_date": (date.today() - timedelta(days=days_ago)).isoformat(),
+                 "followup_count": str(count), "pain_summary": "no Meta Pixel"})
+    return base
+
 
 rows = [
-    {**{k: "" for k in store.FIELDNAMES}, "business_name": "Overdue Gym", "website": "https://overdue-test.example",
-     "status": store.STATUS_CONTACTED, "email_sent_date": five_days_ago, "followup_count": "0",
-     "pain_summary": "no Meta Pixel", "osm_id": "node/100"},
-    {**{k: "" for k in store.FIELDNAMES}, "business_name": "Fresh Gym", "website": "https://fresh-test.example",
-     "status": store.STATUS_CONTACTED, "email_sent_date": yesterday, "followup_count": "0",
-     "pain_summary": "no GA4", "osm_id": "node/101"},
-    {**{k: "" for k in store.FIELDNAMES}, "business_name": "Maxed Out Gym", "website": "https://maxed-test.example",
-     "status": store.STATUS_FOLLOWED_UP, "last_followup_date": five_days_ago, "followup_count": "2",
-     "pain_summary": "no GTM", "osm_id": "node/102"},
+    row("fu1due", 5, 0),          # day 5, none sent -> FU1 due
+    row("notyet", 2, 0),          # day 2 -> not due
+    row("fu2due", 9, 1),          # day 9, FU1 sent -> FU2 due
+    row("fu3due", 15, 2),         # day 15, FU1+FU2 sent -> FU3 (breakup) due
+    row("exhausted", 30, 3),      # all 3 sent -> closed by main loop, never due
+    row("fresh", 1, 0),
 ]
-store.save("data/test_followup.csv", rows)
+due = store.followup_stage_due(rows, [4, 8, 14])
+names = {r["business_name"] for r in due}
+print("Due:", names)
+assert names == {"fu1due", "fu2due", "fu3due"}, names
+print("Stage cadence CORRECT: thresholds 4/8/14 from first email, stage-aware")
 
-cfg = config.load_settings()
-due = store.due_for_followup(store.load("data/test_followup.csv"), cfg.followup_after_days, cfg.max_followups_total)
-names_due = {r["business_name"] for r in due}
-print("Due for follow-up:", names_due)
-assert names_due == {"Overdue Gym"}, f"Expected only 'Overdue Gym' due, got {names_due}"
-print("Follow-up scheduling logic: CORRECT (respects days-since AND max-total caps)")
+# legacy wrapper compatibility (old signature still behaves)
+legacy = store.due_for_followup(rows, 4, 2)
+assert "fu1due" in {r["business_name"] for r in legacy}
+print("Legacy due_for_followup wrapper: OK")
 
-# ---- Test email sending path (mocked SMTP) ----
-from agent import emailer
-
+# ---- emailer paths (mocked SMTP) ----
+from agent import emailer  # noqa: E402
 sent_log = []
+
+
 class FakeSMTP:
     def __init__(self, host, port, timeout=None): pass
     def __enter__(self): return self
@@ -48,15 +53,10 @@ class FakeSMTP:
     def login(self, u, p): sent_log.append(("login", u))
     def sendmail(self, frm, to, msg): sent_log.append(("send", frm, to))
 
+
 with mock.patch("smtplib.SMTP_SSL", FakeSMTP):
-    result = emailer.send("test@example.com", "Subject", "Body", "me@gmail.com", "app-password-123")
-    assert result is True
+    assert emailer.send("t@example.com", "S", "B", "me@gmail.com", "app-pass") is True
     assert ("login", "me@gmail.com") in sent_log
-    print("Email sending path (mocked): CORRECT")
-
-    # Test skip-when-not-configured path
-    result2 = emailer.send("test@example.com", "Subject", "Body", "", "")
-    assert result2 is False
-    print("Email skip-when-unconfigured path: CORRECT")
-
+    assert emailer.send("t@example.com", "S", "B", "", "") is False
+print("Emailer paths: CORRECT")
 print("\nALL FOLLOWUP + EMAIL TESTS PASSED")

@@ -25,6 +25,7 @@ STATUS_MAP = {
     "Followed Up": "Contacted",
     "Won - Client": "Won - Client",
     "Lost": "Lost",
+    "Closed": "Lost",
 }
 
 
@@ -39,12 +40,19 @@ def _priority_from_pain_count(pain_summary: str) -> str:
     return "High" if count >= 3 else "Medium"
 
 
+def _priority(lead: dict) -> str:
+    score = str(lead.get("score") or "")
+    if score.isdigit():
+        return "High" if int(score) >= 4 else ("Medium" if int(score) == 3 else "Low")
+    return _priority_from_pain_count(lead.get("pain_summary", ""))
+
+
 def to_crm_row(lead: dict) -> dict:
     pain_summary = lead.get("pain_summary", "")
     return {
         "company": lead.get("business_name", ""),
-        "contactPerson": "",
-        "role": "",
+        "contactPerson": lead.get("contact_name", ""),
+        "role": lead.get("contact_role", ""),
         "email": lead.get("email", ""),
         "phone": lead.get("phone", ""),
         "website": lead.get("website", ""),
@@ -60,12 +68,16 @@ def to_crm_row(lead: dict) -> dict:
         "source": "Local Business Directory",
         "channel": "Email" if lead.get("email") else "",
         "status": STATUS_MAP.get(lead.get("status", ""), "New Lead"),
-        "priority": _priority_from_pain_count(pain_summary),
+        "priority": _priority(lead),
         "dealValue": "",
         "lastContact": lead.get("email_sent_date") or lead.get("last_followup_date") or "",
         "nextFollowUp": "",  # left for Israr to set inside the CRM once he starts working the lead
-        "notes": (f"Found via AI Lead Agent (OpenStreetMap) on {lead.get('date_found','')}. "
-                  f"AI crawlers blocked: {lead.get('ai_crawlers_blocked','Unknown')}."),
+        "notes": (f"Found via AI Lead Agent (web discovery: e-commerce/services) on "
+                  f"{lead.get('date_found','')}. Platform: {lead.get('platform','Unknown')}. "
+                  f"Score: {lead.get('score','')}. Email confidence: "
+                  f"{lead.get('email_confidence','')}. Ads running: "
+                  f"{lead.get('ads_running','Unknown')}. AI crawlers blocked: "
+                  f"{lead.get('ai_crawlers_blocked','Unknown')}."),
     }
 
 
