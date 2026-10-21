@@ -72,6 +72,8 @@ def audit(website: str, timeout: int = 12) -> dict:
         "fetched": False, "https": website.lower().startswith("https://"),
         "ga4": "Unknown", "gtm": "Unknown", "meta_pixel": "Unknown", "google_ads_tag": "Unknown",
         "ai_crawlers_blocked": "Unknown", "email": "",
+        "platform": "Unknown", "is_store": "Unknown", "has_booking": "Unknown",
+        "has_socials": "Unknown", "has_reviews": "Unknown",
     }
     try:
         resp = requests.get(website, timeout=timeout, headers={"User-Agent": UA}, allow_redirects=True)
@@ -87,10 +89,36 @@ def audit(website: str, timeout: int = 12) -> dict:
         result["google_ads_tag"] = "Yes" if (re.search(r"AW-\d{9,12}", html)
                                               or "googleadservices.com/pagead/conversion" in html) else "No"
         result["email"] = _extract_email(html)
+        result["platform"] = _detect_platform(html)
+        low = html.lower()
+        result["is_store"] = "Yes" if ("cdn.shopify.com" in low or "/products/" in low
+                                       or "add to cart" in low or "/cart" in low) else "No"
+        result["has_booking"] = "Yes" if any(k in low for k in (
+            "book a consultation", "book now", "get a free quote", "request a quote",
+            "free consultation", "schedule a call")) else "No"
+        result["has_socials"] = "Yes" if any(k in low for k in (
+            "instagram.com/", "facebook.com/", "linkedin.com/company")) else "No"
+        result["has_reviews"] = "Yes" if any(k in low for k in (
+            "reviews", "trustpilot", "★", "rating")) else "No"
         result["ai_crawlers_blocked"] = _check_ai_crawlers_blocked(resp.url, timeout)
     except requests.RequestException:
         pass  # site blocked the request or timed out — leave everything "Unknown"
     return result
+
+
+def _detect_platform(html: str) -> str:
+    low = html.lower()
+    if "cdn.shopify.com" in low or "myshopify.com" in low:
+        return "Shopify"
+    if "woocommerce" in low or "wp-content/plugins/woocommerce" in low:
+        return "WooCommerce"
+    if "static.parastorage.com" in low or "wixstatic.com" in low:
+        return "Wix"
+    if "squarespace" in low:
+        return "Squarespace"
+    if "wp-content" in low:
+        return "WordPress"
+    return "Other"
 
 
 def pain_points(audit_result: dict) -> list[str]:

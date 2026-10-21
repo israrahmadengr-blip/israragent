@@ -58,7 +58,24 @@ class Settings:
     @property
     def followup_after_days(self) -> int: return _get_int("FOLLOWUP_AFTER_DAYS", 4)
     @property
-    def max_followups_total(self) -> int: return _get_int("MAX_FOLLOWUPS_TOTAL", 2)
+    def max_followups_total(self) -> int: return _get_int("MAX_FOLLOWUPS_TOTAL", 3)
+
+    # ---- retargeted discovery (2026-10-21): online businesses only ----
+    @property
+    def verticals(self) -> list[str]:
+        return [v.lower() for v in _get_list("VERTICALS", "ecommerce,services")]
+    @property
+    def followup_days(self) -> list[int]:
+        raw = _get("FOLLOWUP_DAYS", "4,8,14")
+        try:
+            days = [int(x) for x in raw.split(",") if x.strip()]
+            return days or [4, 8, 14]
+        except ValueError:
+            return [4, 8, 14]
+    @property
+    def targets_csv_path(self) -> str: return _get("TARGETS_CSV_PATH", "data/targets.csv")
+    @property
+    def blocklist_csv_path(self) -> str: return _get("BLOCKLIST_CSV_PATH", "data/blocklist.csv")
 
     # ---- optional: real email sending via Gmail SMTP (leave blank to skip sending) ----
     @property
