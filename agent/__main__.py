@@ -13,7 +13,7 @@ import time
 from datetime import date
 
 from . import (ads_check, config, crm_export, discover, emailer, enrich,
-               scoring, store, writer)
+               intel, scoring, store, writer)
 
 
 def log(msg: str) -> None:
@@ -55,16 +55,32 @@ def run_once() -> dict:
             audit_result["email"] = contact["email"]
         ads = ads_check.check_ads(cand["business_name"], domain, cfg.request_timeout)
         score, reasons = scoring.score_lead(audit_result, contact, ads)
+        # Intel layer (v3): weighted pain-point scoring + classification;
+        # drafts open with the top pain's evidence-based hook.
+        intel_result = intel.analyse(audit_result, ads, cand["vertical"])
         pains = site_pain_points(audit_result)
         drafts = writer.build_drafts(cand["business_name"], cand["website"], pains, cfg,
-                                     contact_name=contact.get("contact_name", ""))
+                                     contact_name=contact.get("contact_name", ""),
+                                     intel=intel_result)
         drafts["pain_summary"] = "; ".join(pains) if pains else "No major gaps found"
         row = store.new_row(cand["business_name"], cand["vertical"], cand["country"], "",
                             cand["website"], "", audit_result, drafts,
                             f"web:{domain}", contact=contact, score=score,
-                            ads_running=ads, source=cand["source"])
+                            ads_running=ads, source=cand["source"],
+                            intel=intel_result)
+        note_parts = []
         if reasons:
-            row["notes"] = f"Score {score}: {reasons}"
+            note_parts.append(f"Score {score}: {reasons}")
+        if intel_result.get("top_pain"):
+            tp = intel_result["top_pain"]
+            note_parts.append(
+                f"Intel: {intel_result['classification']} | opportunity "
+                f"{intel_result['opportunity']}/100 | top pain "
+                f"{tp['score']}/100 ({tp['confidence']}): {tp['title']}")
+            if intel_result["classification"] == "HOT":
+                stats["hot_leads"] = stats.get("hot_leads", 0) + 1
+        if note_parts:
+            row["notes"] = " | ".join(note_parts)
         rows.append(row)
         new_rows.append(row)
         seen_domains.add(domain)
@@ -96,6 +112,19 @@ def run_once() -> dict:
             new_pains = [p for p in site_pain_points(re_audit)
                          if p not in (row.get("pain_summary") or "")]
             fresh_pain = new_pains[0] if new_pains else ""
+            # Intel layer: a fresh top pain (different from the stored
+            # one) becomes FU2's new angle, and the stored intel fields
+            # are refreshed from the re-audit.
+            fresh_intel = intel.analyse(re_audit, row.get("ads_running", "Unknown"),
+                                        row.get("niche", ""))
+            ftp = fresh_intel.get("top_pain")
+            if ftp and ftp["title"] != (row.get("top_pain") or ""):
+                fresh_pain = ftp["title"]
+            if ftp:
+                row["classification"] = fresh_intel["classification"]
+                row["top_pain"] = ftp["title"]
+                row["pain_score"] = str(ftp["score"])
+                row["opportunity_score"] = str(fresh_intel["opportunity"])
         pains = (row.get("pain_summary") or "").split("; ")
         subject, body = writer.build_followup(stage, row["business_name"], row["website"],
                                               pains, cfg,
@@ -140,6 +169,7 @@ def _finish(cfg, rows, stats) -> dict:
     store.save(cfg.leads_csv_path, rows)
     stats["crm_synced"] = len(to_sync)
     log(f"Raw found: {stats['raw_found']} | New leads: {stats['new_leads']} | "
+        f"HOT leads: {stats.get('hot_leads', 0)} | "
         f"Emails sent: {stats['emails_sent']} | Follow-ups drafted: {stats['followups_drafted']} | "
         f"Follow-ups sent: {stats.get('followups_sent', 0)} | Closed: {stats.get('closed', 0)} | "
         f"New in crm_import.csv: {stats['crm_synced']}")

@@ -52,3 +52,20 @@ see `agent/config.py`. Key ones: `VERTICALS` (ecommerce,services),
 ## Tests
 `python3 test_pipeline.py`, `python3 test_followups.py`, `python3 test_crm_sync.py`
 — all run offline against fakes.
+
+## v3 — Prospect-intel engine active (2026-10-21)
+
+Every lead now also runs through `agent/intel.py` — the same prospect-intel
+system as the main israrads outreach stack:
+
+- Each audit finding becomes an evidence-labelled pain point
+  (VERIFIED / LIKELY / UNVERIFIED) scored 0–100 with the weighted model
+  (Evidence 25 / Impact 25 / Service Fit 20 / Severity 15 / Outreach 10 /
+  Urgency 5). "Unknown" checks never become findings.
+- Leads carry `classification` (HOT/WARM/COLD), `top_pain`, `pain_score`
+  and `opportunity_score` columns in data/leads.csv.
+- Outreach drafts (email/WhatsApp/LinkedIn) open with the top pain
+  point's evidence-based hook instead of a generic gap list; FU2's fresh
+  angle also comes from a re-run intel pass.
+- Free data sources only; ad presence still comes solely from the
+  tri-state library check — never inferred from page tags.

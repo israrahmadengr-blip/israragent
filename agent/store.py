@@ -14,6 +14,7 @@ FIELDNAMES = [
     "messenger_draft", "status", "email_sent_date", "followup_count", "last_followup_date",
     "notes", "osm_id", "crm_synced", "contact_name", "contact_role",
     "email_confidence", "platform", "score", "ads_running", "source",
+    "classification", "top_pain", "pain_score", "opportunity_score",
 ]
 
 STATUS_NEW = "Ready for Outreach"
@@ -46,8 +47,11 @@ def existing_osm_ids(rows: list[dict]) -> set[str]:
 
 def new_row(business_name: str, niche: str, country: str, city: str, website: str, phone: str,
             audit_result: dict, drafts: dict, osm_id: str, contact: dict | None = None,
-            score: str = "", ads_running: str = "Unknown", source: str = "") -> dict:
+            score: str = "", ads_running: str = "Unknown", source: str = "",
+            intel: dict | None = None) -> dict:
     contact = contact or {}
+    intel = intel or {}
+    top_pain = intel.get("top_pain") or {}
     return {
         "date_found": date.today().isoformat(),
         "business_name": business_name, "niche": niche, "country": country, "city": city,
@@ -67,6 +71,10 @@ def new_row(business_name: str, niche: str, country: str, city: str, website: st
         "email_confidence": contact.get("email_confidence", ""),
         "platform": audit_result.get("platform", "Unknown"),
         "score": str(score), "ads_running": ads_running, "source": source,
+        "classification": intel.get("classification", ""),
+        "top_pain": top_pain.get("title", ""),
+        "pain_score": str(top_pain.get("score", "")),
+        "opportunity_score": str(intel.get("opportunity", "")),
     }
 
 

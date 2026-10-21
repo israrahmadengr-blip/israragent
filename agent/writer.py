@@ -14,6 +14,8 @@ import re
 
 import requests
 
+from . import intel as intel_mod
+
 
 def _domain(website: str) -> str:
     return re.sub(r"^https?://", "", website, flags=re.I).replace("www.", "", 1).split("/")[0]
@@ -28,7 +30,7 @@ def _join_natural(items: list[str]) -> str:
 
 
 def build_drafts(business_name: str, website: str, pain_points: list[str], cfg,
-                 contact_name: str = "") -> dict:
+                 contact_name: str = "", intel: dict | None = None) -> dict:
     domain = _domain(website)
     greeting = f"Hi {contact_name.split(' ')[0]}," if contact_name else "Hi there,"
     pain_clause = _join_natural(pain_points) if pain_points else \
@@ -36,10 +38,19 @@ def build_drafts(business_name: str, website: str, pain_points: list[str], cfg,
     competitive_line = ("Right now, competitors who have this covered are likely picking up "
                          "leads and sales that could be landing with you instead.")
 
+    # Intel layer (v3): when the intel engine found a top pain point, the
+    # drafts open with its evidence-based hook — one specific observation,
+    # never the generic multi-gap list. Fallback keeps the classic opener.
+    hook = ""
+    if intel and intel.get("top_pain"):
+        hook = intel_mod.hook_for(intel["top_pain"], business_name)
+    opener = hook if hook else \
+        f"I ran a quick technical check on {domain} and noticed {pain_clause}."
+
     email_subject = f"A quick observation about {domain}"
     email_body = (
         f"{greeting}\n\n"
-        f"I ran a quick technical check on {domain} and noticed {pain_clause}.\n\n"
+        f"{opener}\n\n"
         f"For a business like {business_name}, that usually means missed leads and no clear way "
         f"to measure what's actually working from your marketing. {competitive_line}\n\n"
         f"I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup "
@@ -48,12 +59,19 @@ def build_drafts(business_name: str, website: str, pain_points: list[str], cfg,
         f"Best,\n{cfg.sender_name}\n{cfg.sender_title}\n"
         f"{cfg.sender_email} | {cfg.sender_phone} | {cfg.sender_website}"
     )
-    whatsapp = (f"Hi, this is {cfg.sender_name.split(' ')[0]} — I checked {domain} and noticed "
-                f"{pain_clause}. That usually means missed leads and no way to measure what's "
-                f"working. Worth a quick chat?")
-    linkedin = (f"{greeting} I was looking at {domain} and noticed {pain_clause}. I work with "
-                f"businesses on exactly this (ads + tracking + reporting) — happy to share what "
-                f"I found if useful, no pitch attached.")
+    if hook:
+        whatsapp = (f"Hi, this is {cfg.sender_name.split(' ')[0]} — {hook} "
+                    f"Worth a quick chat?")
+        linkedin = (f"{greeting} {hook} I work with businesses on exactly this "
+                    f"(ads + tracking + reporting) — happy to share what I found "
+                    f"if useful, no pitch attached.")
+    else:
+        whatsapp = (f"Hi, this is {cfg.sender_name.split(' ')[0]} — I checked {domain} and noticed "
+                    f"{pain_clause}. That usually means missed leads and no way to measure what's "
+                    f"working. Worth a quick chat?")
+        linkedin = (f"{greeting} I was looking at {domain} and noticed {pain_clause}. I work with "
+                    f"businesses on exactly this (ads + tracking + reporting) — happy to share what "
+                    f"I found if useful, no pitch attached.")
     messenger = (f"Hi! I checked {domain} and noticed {pain_clause}. I help local businesses fix "
                  f"exactly this — happy to share a couple of quick pointers if that's useful.")
 
