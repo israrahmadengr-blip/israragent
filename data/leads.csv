@@ -1,1 +1,211 @@
-date_found,business_name,niche,country,city,website,phone,email,google_ads_tag,meta_pixel,ga4,gtm,https,ai_crawlers_blocked,pain_summary,email_subject,email_draft,whatsapp_draft,linkedin_draft,messenger_draft,status,email_sent_date,followup_count,last_followup_date,notes,osm_id,crm_synced,contact_name,contact_role,email_confidence,platform,score,ads_running,source
+date_found,business_name,niche,country,city,website,phone,email,google_ads_tag,meta_pixel,ga4,gtm,https,ai_crawlers_blocked,pain_summary,email_subject,email_draft,whatsapp_draft,linkedin_draft,messenger_draft,status,email_sent_date,followup_count,last_followup_date,notes,osm_id,crm_synced,contact_name,contact_role,email_confidence,platform,score,ads_running,source,classification,top_pain,pain_score,opportunity_score
+2026-10-22,Peach & Lily,ecommerce,US,,https://peachandlily.com,,lily@peachandlily.com,No,No,No,Yes,Yes,No,no Google Ads conversion tracking; no Meta Pixel; no GA4 analytics,A quick observation about peachandlily.com,"Hi there,
+
+I was checking Peach & Lily's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands.
+
+For a business like Peach & Lily, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was checking Peach & Lily's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. Worth a quick chat?","Hi there, I was checking Peach & Lily's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.","Hi! I checked peachandlily.com and noticed no Google Ads conversion tracking, no Meta Pixel, and no GA4 analytics. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.",Ready for Outreach,,0,,Score 3: 3 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 84/100 | top pain 90/100 (VERIFIED): no GA4 analytics,web:peachandlily.com,Yes,,,found,Shopify,3,Unknown,targets-file,HOT,no GA4 analytics,90,84
+2026-10-22,Ritual,ecommerce,US,,https://ritual.com,,,Yes,No,Yes,No,Yes,No,no Meta Pixel; no Google Tag Manager,A quick observation about ritual.com,"Hi there,
+
+I was reviewing Ritual's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website.
+
+For a business like Ritual, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was reviewing Ritual's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. Worth a quick chat?","Hi there, I was reviewing Ritual's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked ritual.com and noticed no Meta Pixel and no Google Tag Manager. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 2 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 69/100 | top pain 82/100 (VERIFIED): no Meta Pixel,web:ritual.com,Yes,,,,Shopify,3,Unknown,targets-file,HOT,no Meta Pixel,82,69
+2026-10-22,HUM Nutrition,ecommerce,US,,https://humnutrition.com,,hello@humnutrition.com,No,Yes,No,Yes,Yes,No,no Google Ads conversion tracking; no GA4 analytics,A quick observation about humnutrition.com,"Hi there,
+
+I was checking HUM Nutrition's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands.
+
+For a business like HUM Nutrition, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was checking HUM Nutrition's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. Worth a quick chat?","Hi there, I was checking HUM Nutrition's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked humnutrition.com and noticed no Google Ads conversion tracking and no GA4 analytics. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 2 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 74/100 | top pain 90/100 (VERIFIED): no GA4 analytics,web:humnutrition.com,Yes,,,generic,Other,3,Unknown,targets-file,HOT,no GA4 analytics,90,74
+2026-10-22,Caboodle,ecommerce,GB,,https://caboodle.dog,,hello@caboodle.dog,Yes,No,Yes,Yes,Yes,No,no Meta Pixel,A quick observation about caboodle.dog,"Hi there,
+
+I was reviewing Caboodle's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website.
+
+For a business like Caboodle, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was reviewing Caboodle's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. Worth a quick chat?","Hi there, I was reviewing Caboodle's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked caboodle.dog and noticed no Meta Pixel. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 1 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 59/100 | top pain 82/100 (VERIFIED): no Meta Pixel,web:caboodle.dog,Yes,,,generic,Shopify,3,Unknown,targets-file,HOT,no Meta Pixel,82,59
+2026-10-22,Years,ecommerce,GB,,https://years.com,,,Yes,No,No,Yes,Yes,No,no Meta Pixel; no GA4 analytics,A quick observation about years.com,"Hi there,
+
+I was checking Years's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands.
+
+For a business like Years, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was checking Years's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. Worth a quick chat?","Hi there, I was checking Years's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked years.com and noticed no Meta Pixel and no GA4 analytics. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 2 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 74/100 | top pain 90/100 (VERIFIED): no GA4 analytics,web:years.com,Yes,,,,Shopify,3,Unknown,targets-file,HOT,no GA4 analytics,90,74
+2026-10-22,The Pets Larder,ecommerce,GB,,https://thepetslarder.co.uk,,ahoy@thepetslarder.co.uk,Yes,No,Yes,No,Yes,No,no Meta Pixel; no Google Tag Manager,A quick observation about thepetslarder.co.uk,"Hi there,
+
+I was reviewing The Pets Larder's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website.
+
+For a business like The Pets Larder, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was reviewing The Pets Larder's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. Worth a quick chat?","Hi there, I was reviewing The Pets Larder's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked thepetslarder.co.uk and noticed no Meta Pixel and no Google Tag Manager. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 2 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 69/100 | top pain 82/100 (VERIFIED): no Meta Pixel,web:thepetslarder.co.uk,Yes,,,generic,Shopify,3,Unknown,targets-file,HOT,no Meta Pixel,82,69
+2026-10-22,Trusty Pet Supplies,ecommerce,GB,,https://trustypetsupplies.co.uk,,help@trustypetsupplies.co.uk,Yes,No,Yes,No,Yes,No,no Meta Pixel; no Google Tag Manager,A quick observation about trustypetsupplies.co.uk,"Hi there,
+
+I was reviewing Trusty Pet Supplies's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website.
+
+For a business like Trusty Pet Supplies, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was reviewing Trusty Pet Supplies's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. Worth a quick chat?","Hi there, I was reviewing Trusty Pet Supplies's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked trustypetsupplies.co.uk and noticed no Meta Pixel and no Google Tag Manager. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 2 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 69/100 | top pain 82/100 (VERIFIED): no Meta Pixel,web:trustypetsupplies.co.uk,Yes,,,found,Shopify,3,Unknown,targets-file,HOT,no Meta Pixel,82,69
+2026-10-22,Hakam Immigration Consulting,services,CA,,https://hakamimmigration.com,,info@hakamimmigration.com,No,Yes,No,No,Yes,No,no Google Ads conversion tracking; no GA4 analytics; no Google Tag Manager,A quick observation about hakamimmigration.com,"Hi there,
+
+I was checking Hakam Immigration Consulting's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands.
+
+For a business like Hakam Immigration Consulting, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was checking Hakam Immigration Consulting's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. Worth a quick chat?","Hi there, I was checking Hakam Immigration Consulting's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.","Hi! I checked hakamimmigration.com and noticed no Google Ads conversion tracking, no GA4 analytics, and no Google Tag Manager. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.",Ready for Outreach,,0,,Score 3: 3 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 84/100 | top pain 90/100 (VERIFIED): no GA4 analytics,web:hakamimmigration.com,Yes,,,generic,WooCommerce,3,Unknown,targets-file,HOT,no GA4 analytics,90,84
+2026-10-22,Canada Abroad,services,CA,,https://canadaabroad.com,,info@canadaabroad.com,No,No,No,Yes,Yes,No,no Google Ads conversion tracking; no Meta Pixel; no GA4 analytics,A quick observation about canadaabroad.com,"Hi there,
+
+I was checking Canada Abroad's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands.
+
+For a business like Canada Abroad, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was checking Canada Abroad's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. Worth a quick chat?","Hi there, I was checking Canada Abroad's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.","Hi! I checked canadaabroad.com and noticed no Google Ads conversion tracking, no Meta Pixel, and no GA4 analytics. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.",Ready for Outreach,,0,,Score 3: 3 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 84/100 | top pain 90/100 (VERIFIED): no GA4 analytics,web:canadaabroad.com,Yes,,,generic,WordPress,3,Unknown,targets-file,HOT,no GA4 analytics,90,84
+2026-10-22,Immigrate Now,services,CA,,https://immigratenow.ca,,iwantto@immigratenow.ca,No,No,No,Yes,Yes,No,no Google Ads conversion tracking; no Meta Pixel; no GA4 analytics,A quick observation about immigratenow.ca,"Hi Pratap,
+
+I was checking Immigrate Now's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands.
+
+For a business like Immigrate Now, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was checking Immigrate Now's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. Worth a quick chat?","Hi Pratap, I was checking Immigrate Now's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.","Hi! I checked immigratenow.ca and noticed no Google Ads conversion tracking, no Meta Pixel, and no GA4 analytics. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.",Ready for Outreach,,0,,Score 4: 3 tracking gap(s); decision-maker: Pratap Singh; active brand signals (reviews/socials) | Intel: HOT | opportunity 84/100 | top pain 90/100 (VERIFIED): no GA4 analytics,web:immigratenow.ca,Yes,Pratap Singh,Ceo,found,Other,4,Unknown,targets-file,HOT,no GA4 analytics,90,84
+2026-10-22,The Way Immigration,services,CA,,https://thewayimmigration.ca,,info@thewayimmigration.ca,Yes,No,Yes,Yes,Yes,No,no Meta Pixel,A quick observation about thewayimmigration.ca,"Hi there,
+
+I was reviewing The Way Immigration's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website.
+
+For a business like The Way Immigration, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was reviewing The Way Immigration's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. Worth a quick chat?","Hi there, I was reviewing The Way Immigration's setup and couldn't detect a Meta Pixel on the site. If you're running Meta campaigns, there'd be no retargeting pool and no conversion signal coming back from the website. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked thewayimmigration.ca and noticed no Meta Pixel. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 1 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 59/100 | top pain 82/100 (VERIFIED): no Meta Pixel,web:thewayimmigration.ca,Yes,,,generic,Other,3,Unknown,targets-file,HOT,no Meta Pixel,82,59
+2026-10-22,MAK Immigration,services,CA,,https://makimmigration.ca,,mississauga@makimmigration.ca,No,No,Yes,No,Yes,No,no Google Ads conversion tracking; no Meta Pixel; no Google Tag Manager,A quick observation about makimmigration.ca,"Hi there,
+
+I was reviewing MAK Immigration's setup and couldn't detect a Google Ads conversion tag on the site. If you're running paid search, that means Smart Bidding is learning from clicks rather than actual leads or sales.
+
+For a business like MAK Immigration, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was reviewing MAK Immigration's setup and couldn't detect a Google Ads conversion tag on the site. If you're running paid search, that means Smart Bidding is learning from clicks rather than actual leads or sales. Worth a quick chat?","Hi there, I was reviewing MAK Immigration's setup and couldn't detect a Google Ads conversion tag on the site. If you're running paid search, that means Smart Bidding is learning from clicks rather than actual leads or sales. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.","Hi! I checked makimmigration.ca and noticed no Google Ads conversion tracking, no Meta Pixel, and no Google Tag Manager. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.",Ready for Outreach,,0,,Score 3: 3 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 79/100 | top pain 82/100 (VERIFIED): no Google Ads conversion tracking,web:makimmigration.ca,Yes,,,found,WordPress,3,Unknown,targets-file,HOT,no Google Ads conversion tracking,82,79
+2026-10-22,Merit Tutors,services,GB,,https://merittutors.co.uk,,onlinetuition@merittutors.co.uk,No,Yes,Yes,No,Yes,No,no Google Ads conversion tracking; no Google Tag Manager,A quick observation about merittutors.co.uk,"Hi there,
+
+I was reviewing Merit Tutors's setup and couldn't detect a Google Ads conversion tag on the site. If you're running paid search, that means Smart Bidding is learning from clicks rather than actual leads or sales.
+
+For a business like Merit Tutors, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was reviewing Merit Tutors's setup and couldn't detect a Google Ads conversion tag on the site. If you're running paid search, that means Smart Bidding is learning from clicks rather than actual leads or sales. Worth a quick chat?","Hi there, I was reviewing Merit Tutors's setup and couldn't detect a Google Ads conversion tag on the site. If you're running paid search, that means Smart Bidding is learning from clicks rather than actual leads or sales. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked merittutors.co.uk and noticed no Google Ads conversion tracking and no Google Tag Manager. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 2 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 69/100 | top pain 82/100 (VERIFIED): no Google Ads conversion tracking,web:merittutors.co.uk,Yes,,,found,Other,3,Unknown,targets-file,HOT,no Google Ads conversion tracking,82,69
+2026-10-22,Explore Learning,services,GB,,https://explorelearning.co.uk,,lisa.haycox@explorelearning.co.uk,No,No,No,Yes,Yes,No,no Google Ads conversion tracking; no Meta Pixel; no GA4 analytics,A quick observation about explorelearning.co.uk,"Hi Lisa,
+
+I was checking Explore Learning's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands.
+
+For a business like Explore Learning, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was checking Explore Learning's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. Worth a quick chat?","Hi Lisa, I was checking Explore Learning's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.","Hi! I checked explorelearning.co.uk and noticed no Google Ads conversion tracking, no Meta Pixel, and no GA4 analytics. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.",Ready for Outreach,,0,,Score 4: 3 tracking gap(s); decision-maker: Lisa Haycox; active brand signals (reviews/socials) | Intel: HOT | opportunity 84/100 | top pain 90/100 (VERIFIED): no GA4 analytics,web:explorelearning.co.uk,Yes,Lisa Haycox,Ceo,pattern-guessed,Other,4,Unknown,targets-file,HOT,no GA4 analytics,90,84
+2026-10-22,Aim Higher Tuition,services,GB,,https://ahts.co.uk,,contact@ahts.co.uk,No,Yes,No,Yes,Yes,No,no Google Ads conversion tracking; no GA4 analytics,A quick observation about ahts.co.uk,"Hi there,
+
+I was checking Aim Higher Tuition's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands.
+
+For a business like Aim Higher Tuition, that usually means missed leads and no clear way to measure what's actually working from your marketing. Right now, competitors who have this covered are likely picking up leads and sales that could be landing with you instead.
+
+I specialize in fixing exactly this — Google Ads, Meta Ads, tracking setup (GA4/GTM/Pixel), and reporting so you can see real numbers instead of guessing.
+
+Worth a quick 15-minute call to walk through what I found?
+
+Best,
+Israr Ahmad
+Performance Marketing — Google Ads, Meta Ads & Tracking
+contact@israrads.com | +92 303 5995553 | israrads.com","Hi, this is Israr — I was checking Aim Higher Tuition's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. Worth a quick chat?","Hi there, I was checking Aim Higher Tuition's website and couldn't detect a GA4 setup in the site code — which means there's no first-party view of what your traffic actually does once it lands. I work with businesses on exactly this (ads + tracking + reporting) — happy to share what I found if useful, no pitch attached.",Hi! I checked ahts.co.uk and noticed no Google Ads conversion tracking and no GA4 analytics. I help local businesses fix exactly this — happy to share a couple of quick pointers if that's useful.,Ready for Outreach,,0,,Score 3: 2 tracking gap(s); active brand signals (reviews/socials) | Intel: HOT | opportunity 74/100 | top pain 90/100 (VERIFIED): no GA4 analytics,web:ahts.co.uk,Yes,,,generic,WooCommerce,3,Unknown,targets-file,HOT,no GA4 analytics,90,74
